@@ -6,5 +6,7 @@ MAINTAINER Sean Adkinson <sean.adkinson@odysseyscience.com>
 ENTRYPOINT ["node"]
 CMD ["/app/lib/pollAndPush.js"]
 
-ADD node_modules /app/node_modules
+ADD package.json /app/package.json
+RUN cd /app && npm install
+
 ADD lib /app/lib
