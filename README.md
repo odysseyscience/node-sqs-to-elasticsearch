@@ -31,8 +31,15 @@ Here is an example `/app/config/index.js` showing all available options:
             preprocess: function(message) {
                 /*
                  * Pre-Process the message.  For example, you might want to
-                 * add or remove certain fields that shouldn't be indexed
+                 * add or remove certain fields that shouldn't be indexed.
                  */
+                
+                try {
+                    // If your message is JSON, you might want to parse it
+                    message = JSON.parse(message.Message);
+                }
+                catch (e) {}
+                
                 return message;
             }
         }
